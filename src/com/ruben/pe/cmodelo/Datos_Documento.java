@@ -18,14 +18,14 @@ public class Datos_Documento {
     private int id_cliente;
     private int ID_DOCUMENTO_IDENTIDAD;
 
-    public Datos_Documento(int id_Datos_Documento, int numero, Date Fecha_Emicion, Date Fecha_Vencimiento, int id_cliente, int id_tipo_documento) {
-        this.id_Datos_Documento = id_Datos_Documento;
-        this.numero = numero;
-        this.Fecha_Emicion = Fecha_Emicion;
-        this.Fecha_Vencimiento = Fecha_Vencimiento;
-        this.id_cliente = id_cliente;
-        this.ID_DOCUMENTO_IDENTIDAD = id_tipo_documento;
-    }
+   // public Datos_Documento(int id_Datos_Documento, int numero, Date Fecha_Emicion, Date Fecha_Vencimiento, int id_cliente, int id_tipo_documento) {
+       // this.id_Datos_Documento = id_Datos_Documento;
+       // this.numero = numero;
+       // this.Fecha_Emicion = Fecha_Emicion;
+       // this.Fecha_Vencimiento = Fecha_Vencimiento;
+       // this.id_cliente = id_cliente;
+       // this.ID_DOCUMENTO_IDENTIDAD = id_tipo_documento;
+    //}
 
     public int getId_Datos_Documento() {
         return id_Datos_Documento;
