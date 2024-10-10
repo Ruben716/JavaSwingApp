@@ -4,6 +4,8 @@
  */
 package com.ruben.pe.cmodelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -43,20 +45,28 @@ public class Datos_Documento {
         this.numero = numero;
     }
 
-    public Date getFecha_Emicion() {
-        return Fecha_Emicion;
+    public String getFecha_Emicion() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(Fecha_Emicion) ;
     }
 
-    public void setFecha_Emicion(Date Fecha_Emicion) {
-        this.Fecha_Emicion = Fecha_Emicion;
+    public void setFecha_Emicion(String Fecha_Emicion) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        
+        this.Fecha_Emicion = dateFormat.parse(Fecha_Emicion);
+
+        
     }
 
-    public Date getFecha_Vencimiento() {
-        return Fecha_Vencimiento;
+    public String getFecha_Vencimiento() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(Fecha_Emicion) ;
     }
 
-    public void setFecha_Vencimiento(Date Fecha_Vencimiento) {
-        this.Fecha_Vencimiento = Fecha_Vencimiento;
+    public void setFecha_Vencimiento(String Fecha_Vencimiento) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        this.Fecha_Vencimiento = dateFormat.parse(Fecha_Vencimiento);
     }
 
     public int getId_cliente() {
@@ -67,13 +77,16 @@ public class Datos_Documento {
         this.id_cliente = id_cliente;
     }
 
-    public int getId_tipo_documento() {
+    
+
+    public int getID_DOCUMENTO_IDENTIDAD() {
         return ID_DOCUMENTO_IDENTIDAD;
     }
 
-    public void setId_tipo_documento(int id_tipo_documento) {
-        this.ID_DOCUMENTO_IDENTIDAD = id_tipo_documento;
+    public void setID_DOCUMENTO_IDENTIDAD(int ID_DOCUMENTO_IDENTIDAD) {
+        this.ID_DOCUMENTO_IDENTIDAD = ID_DOCUMENTO_IDENTIDAD;
     }
+    
     
     
 }

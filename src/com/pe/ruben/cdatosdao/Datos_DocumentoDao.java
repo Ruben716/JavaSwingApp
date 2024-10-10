@@ -20,14 +20,14 @@ public class Datos_DocumentoDao {
         
         PreparedStatement ps = null ;
         String sql = "INSERT INTO DATOS_DOCUMENTO (NUMERO,FECHA_EMICION,FECHA_VENCIMIENTO,ID_CLIENTE,ID_DOCUMENTO_IDENTIDAD)"
-                + "VALUES (?,?,?,?,?)";  
+                    + "VALUES (?,?,?,?,?)";  
         
         
         try {
             ps= conn.prepareStatement(sql);
             ps.setInt(1,datosDocumento.getNumero());
-            ps.setDate(2, (Date) datosDocumento.getFecha_Emicion());
-            ps.setDate(3, (Date) datosDocumento.getFecha_Vencimiento());
+            ps.setString(2,  datosDocumento.getFecha_Emicion());
+            ps.setString(3,  datosDocumento.getFecha_Vencimiento());
             ps.setInt(4, datosDocumento.getId_cliente());
             ps.setInt(5, datosDocumento.getId_Datos_Documento());
             
@@ -40,5 +40,54 @@ public class Datos_DocumentoDao {
         }
         return mensaje ;
     }
-    //segundo metodo modificar o actualizar 
+    //segundo metodo eliminar o  
+    
+    public String eliminarDatosDocumento (Connection conn, Datos_Documento datosDocumento){
+        
+        PreparedStatement ps = null ;
+        String sql = "DELETE FROM DATOS_DOCUMENTO WHERE ID_DATOS_DOCUMENTO = ?";  
+        
+        
+        try {
+            ps= conn.prepareStatement(sql);
+            ps.setInt(1,datosDocumento.getId_Datos_Documento());
+            
+            
+            ps.execute();
+            ps.close();
+            mensaje ="el tipo de documento fue eliminado";
+        } catch (Exception e) {
+            mensaje ="Error al eliminar los datos"+e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return mensaje ;
+    }
+    //tercero modificar 
+    public String modificarDatosDocumento (Connection conn, Datos_Documento datosDocumento){
+        
+        PreparedStatement ps = null ;
+        String sql = "UPDATE DATOS_DOCUMENTO SET  NUMERO=?,FECHA_EMICION =? ,FECHA_VENCIMIENTO=?,ID_CLIENTE=?,ID_DOCUMENTO_IDENTIDAD=? "
+                    + "  WHERE ID_DATOS_DOCUMENTO =?";  
+        
+        
+        try {
+            ps= conn.prepareStatement(sql);
+            
+            
+            ps.setInt(1,datosDocumento.getNumero());
+            ps.setString(2,  datosDocumento.getFecha_Emicion());
+            ps.setString(3,  datosDocumento.getFecha_Vencimiento());
+            ps.setInt(4, datosDocumento.getId_cliente());
+            ps.setInt(5, datosDocumento.getID_DOCUMENTO_IDENTIDAD());
+            ps.setInt(6,datosDocumento.getId_Datos_Documento());
+            
+            ps.execute();
+            ps.close();
+            mensaje ="el tipo de documento fue modificado";
+        } catch (Exception e) {
+            mensaje ="Error al modificar los datos"+e.getMessage();
+            System.out.println(e.getMessage());
+        }
+        return mensaje ;
+    }
 }

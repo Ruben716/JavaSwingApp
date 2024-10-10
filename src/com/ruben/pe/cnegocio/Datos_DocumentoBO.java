@@ -31,5 +31,28 @@ public class Datos_DocumentoBO {
         }
         return mensaje ;
     }
-    
+    public String eliminarDatosDocumento (Datos_Documento datosDocumento) throws SQLException{
+        Connection c = Conexion.getConnection();
+        try {
+            mensaje = dd.eliminarDatosDocumento(c,datosDocumento);
+            c.commit();
+        } catch (Exception e) {
+            c.rollback();
+        } finally{
+            c.close();
+        }
+        return mensaje ;
+    }
+    public String modificarDatosDocumento (Datos_Documento datosDocumento) throws SQLException{
+        Connection c = Conexion.getConnection();
+        try {
+            mensaje = dd.modificarDatosDocumento(c,datosDocumento);
+            c.commit();
+        } catch (Exception e) {
+            c.rollback();
+        } finally{
+            c.close();
+        }
+        return mensaje ;
+    }
 }

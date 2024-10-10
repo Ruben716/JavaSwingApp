@@ -34,6 +34,11 @@ public class JframePrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         btnMenuContador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        DATOSDOCUMENTO = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("aplicacion java");
@@ -76,7 +81,29 @@ public class JframePrincipal extends javax.swing.JFrame {
         jMenuBar1.add(btncalculadora);
 
         jMenu2.setText("Edit");
+
+        jMenu1.setText("jMenu1");
+        jMenu2.add(jMenu1);
+
         jMenuBar1.add(jMenu2);
+
+        DATOSDOCUMENTO.setText("mantenimiento");
+
+        jMenuItem2.setText("Datos_documento");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        DATOSDOCUMENTO.add(jMenuItem2);
+
+        jMenuItem3.setText("Datos de la tarjeta ");
+        DATOSDOCUMENTO.add(jMenuItem3);
+
+        jMenuItem4.setText("Documento de identidad ");
+        DATOSDOCUMENTO.add(jMenuItem4);
+
+        jMenuBar1.add(DATOSDOCUMENTO);
 
         setJMenuBar(jMenuBar1);
 
@@ -119,6 +146,26 @@ public class JframePrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        
+     jpDatos_Documento DD = new jpDatos_Documento();
+     DD.setSize(1100, 600);
+     DD.setLocation(0,0);
+     principal.removeAll();
+     principal.add(DD,BorderLayout.CENTER);
+     principal.revalidate();
+     principal.repaint();
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,11 +202,16 @@ public class JframePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu DATOSDOCUMENTO;
     private javax.swing.JMenuItem btnMenuContador;
     private javax.swing.JMenu btncalculadora;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
