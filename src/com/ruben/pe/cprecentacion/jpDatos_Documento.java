@@ -16,12 +16,19 @@ import javax.swing.JOptionPane;
  * @author ACER
  */
 public class jpDatos_Documento extends javax.swing.JPanel {
+    Datos_DocumentoBO tdbo = new Datos_DocumentoBO() ;
+    Datos_Documento dd = new Datos_Documento();
 
     /**
      * Creates new form jpDatos_Documento
      */
     public jpDatos_Documento() {
         initComponents();
+        listarDatos_Documento ();
+    }
+    
+    public void listarDatos_Documento  (){
+        tdbo.listarDatos_Documento(tablaDatosDocumento);
     }
 
     /**

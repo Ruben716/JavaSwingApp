@@ -60,7 +60,7 @@ public class Datos_Documento {
 
     public String getFecha_Vencimiento() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        return dateFormat.format(Fecha_Emicion) ;
+        return dateFormat.format(Fecha_Vencimiento) ;
     }
 
     public void setFecha_Vencimiento(String Fecha_Vencimiento) throws ParseException {
@@ -86,6 +86,13 @@ public class Datos_Documento {
     public void setID_DOCUMENTO_IDENTIDAD(int ID_DOCUMENTO_IDENTIDAD) {
         this.ID_DOCUMENTO_IDENTIDAD = ID_DOCUMENTO_IDENTIDAD;
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     

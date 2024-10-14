@@ -9,6 +9,7 @@ import com.ruben.pe.cmodelo.Datos_Documento;
 import com.ruben.pe.db.Conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JTable;
 
 
 /**
@@ -55,4 +56,17 @@ public class Datos_DocumentoBO {
         }
         return mensaje ;
     }
+    public void listarDatos_Documento (JTable table) {
+            Connection c = Conexion.getConnection();
+            System.out.println("llego aqui2");
+        try {
+            dd.listarDatosDOcumento(c,table);
+        } catch (Exception e) {
+            System.out.println("error2:" +e.getMessage());
+        } finally{
+        }
+    
+}
+
+  
 }
