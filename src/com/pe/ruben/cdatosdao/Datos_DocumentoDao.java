@@ -33,7 +33,7 @@ public class Datos_DocumentoDao {
             ps.setString(2,  datosDocumento.getFecha_Emicion());
             ps.setString(3,  datosDocumento.getFecha_Vencimiento());
             ps.setInt(4, datosDocumento.getId_cliente());
-            ps.setInt(5, datosDocumento.getId_Datos_Documento());
+            ps.setInt(5, datosDocumento.getID_DOCUMENTO_IDENTIDAD());
             
             ps.execute();
             ps.close();

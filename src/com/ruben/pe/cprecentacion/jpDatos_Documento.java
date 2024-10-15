@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class jpDatos_Documento extends javax.swing.JPanel {
     Datos_DocumentoBO tdbo = new Datos_DocumentoBO() ;
     Datos_Documento dd = new Datos_Documento();
+    String idDatosdocumento;
 
     /**
      * Creates new form jpDatos_Documento
@@ -83,11 +84,26 @@ public class jpDatos_Documento extends javax.swing.JPanel {
 
             }
         ));
+        tablaDatosDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDatosDocumentoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaDatosDocumento);
 
         BTNeliminar.setText("Eliminar");
+        BTNeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNeliminarActionPerformed(evt);
+            }
+        });
 
         BtnModificar.setText("Modificar");
+        BtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModificarActionPerformed(evt);
+            }
+        });
 
         TextNumero.setBackground(new java.awt.Color(0, 153, 153));
         TextNumero.setBorder(null);
@@ -312,7 +328,7 @@ public class jpDatos_Documento extends javax.swing.JPanel {
         // Crear un objeto de negocio y llamar al método para agregar datos
         Datos_DocumentoBO tdbo = new Datos_DocumentoBO();
         String mensaje = tdbo.agregarDatosDocumento(dd);
-        
+        listarDatos_Documento();
         // Mostrar mensaje de éxito
         JOptionPane.showMessageDialog(this, mensaje);
         
@@ -342,6 +358,79 @@ public class jpDatos_Documento extends javax.swing.JPanel {
     TextIDDocumentoIdentidad.setText("");
     }//GEN-LAST:event_BtnLimpiarActionPerformed
 
+    private void tablaDatosDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDatosDocumentoMouseClicked
+        // TODO add your handling code here:
+        int seleccion  = tablaDatosDocumento.rowAtPoint(evt.getPoint());
+        idDatosdocumento = tablaDatosDocumento.getValueAt(seleccion, 0)+"";
+        
+        
+        TextNumero.setText(tablaDatosDocumento.getValueAt(seleccion, 1)+"");
+        TextFechaEmicion.setText(tablaDatosDocumento.getValueAt(seleccion, 2)+"");
+        TEXTfechavencimiento.setText(tablaDatosDocumento.getValueAt(seleccion, 3)+"");
+        TextIDcliente.setText(tablaDatosDocumento.getValueAt(seleccion, 4)+"");
+        TextIDDocumentoIdentidad.setText(tablaDatosDocumento.getValueAt(seleccion, 5)+"");
+        System.out.println(seleccion);
+    }//GEN-LAST:event_tablaDatosDocumentoMouseClicked
+
+    private void BTNeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNeliminarActionPerformed
+        if (idDatosdocumento != null && !idDatosdocumento.isEmpty()) {
+            try {
+                // Establecer el ID del documento a eliminar
+                dd.setId_Datos_Documento(Integer.parseInt(idDatosdocumento));
+                
+                // Llamar al método de negocio para eliminar el documento
+                String mensaje = tdbo.eliminarDatosDocumento(dd);
+                
+                // Mostrar mensaje de éxito
+                JOptionPane.showMessageDialog(this, mensaje);
+                
+                listarDatos_Documento();
+
+                
+                // Limpiar campos
+                limpiarCampos();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar: ID no válido.");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error de base de datos: " + e.getMessage());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un registro para eliminar.");
+        }
+    }//GEN-LAST:event_BTNeliminarActionPerformed
+
+    private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
+        // TODO add your handling code here:
+        if (idDatosdocumento != null && !idDatosdocumento.isEmpty()) {
+        try {
+            dd.setId_Datos_Documento(Integer.parseInt(idDatosdocumento));
+            dd.setNumero(Integer.parseInt(TextNumero.getText())); 
+            dd.setFecha_Emicion(TextFechaEmicion.getText()); 
+            dd.setFecha_Vencimiento(TEXTfechavencimiento.getText()); 
+            dd.setId_cliente(Integer.parseInt(TextIDcliente.getText())); 
+            dd.setID_DOCUMENTO_IDENTIDAD(Integer.parseInt(TextIDDocumentoIdentidad.getText())); 
+            
+            String mensaje = tdbo.modificarDatosDocumento(dd);
+            
+            JOptionPane.showMessageDialog(this, mensaje);
+            
+            listarDatos_Documento();
+            
+            limpiarCampos();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error: Verifique que todos los campos sean válidos.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error de base de datos: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Por favor, seleccione un registro para modificar.");
+    }
+    }//GEN-LAST:event_BtnModificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNeliminar;
@@ -370,6 +459,10 @@ public class jpDatos_Documento extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void limpiarCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    TextNumero.setText("");
+    TextFechaEmicion.setText("");
+    TEXTfechavencimiento.setText("");
+    TextIDcliente.setText("");
+    TextIDDocumentoIdentidad.setText("");    }
 }
+
