@@ -402,7 +402,6 @@ public class jpDatos_Documento extends javax.swing.JPanel {
     }//GEN-LAST:event_BTNeliminarActionPerformed
 
     private void BtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModificarActionPerformed
-        // TODO add your handling code here:
         if (idDatosdocumento != null && !idDatosdocumento.isEmpty()) {
         try {
             dd.setId_Datos_Documento(Integer.parseInt(idDatosdocumento));

@@ -142,7 +142,5 @@ public class Datos_DocumentoDao {
         
     }
 
-    public void listarDatos_Documento(Connection c, JTable table) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }

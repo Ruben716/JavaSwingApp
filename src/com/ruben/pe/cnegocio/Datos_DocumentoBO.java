@@ -32,6 +32,10 @@ public class Datos_DocumentoBO {
         }
         return mensaje ;
     }
+    
+    //metodo eliminar 
+    
+    
     public String eliminarDatosDocumento (Datos_Documento datosDocumento) throws SQLException{
         Connection c = Conexion.getConnection();
         try {
@@ -44,6 +48,10 @@ public class Datos_DocumentoBO {
         }
         return mensaje ;
     }
+    
+    //metodo modificar 
+    
+    
     public String modificarDatosDocumento (Datos_Documento datosDocumento) throws SQLException{
         Connection c = Conexion.getConnection();
         try {
@@ -56,6 +64,12 @@ public class Datos_DocumentoBO {
         }
         return mensaje ;
     }
+    
+    
+    //metodo listar 
+    
+    
+    
     public void listarDatos_Documento (JTable table) {
             Connection c = Conexion.getConnection();
             System.out.println("llego aqui2");
