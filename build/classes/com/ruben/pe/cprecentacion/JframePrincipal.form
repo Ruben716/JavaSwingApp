@@ -71,6 +71,14 @@
                 <Property name="text" type="java.lang.String" value="Documento de identidad "/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="btnmenupersonadocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="personadocumento"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmenupersonadocumentoActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

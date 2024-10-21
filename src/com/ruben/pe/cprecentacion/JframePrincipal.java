@@ -39,6 +39,7 @@ public class JframePrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        btnmenupersonadocumento = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("aplicacion java");
@@ -103,6 +104,14 @@ public class JframePrincipal extends javax.swing.JFrame {
         jMenuItem4.setText("Documento de identidad ");
         DATOSDOCUMENTO.add(jMenuItem4);
 
+        btnmenupersonadocumento.setText("personadocumento");
+        btnmenupersonadocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenupersonadocumentoActionPerformed(evt);
+            }
+        });
+        DATOSDOCUMENTO.add(btnmenupersonadocumento);
+
         jMenuBar1.add(DATOSDOCUMENTO);
 
         setJMenuBar(jMenuBar1);
@@ -166,6 +175,21 @@ public class JframePrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void btnmenupersonadocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenupersonadocumentoActionPerformed
+        // TODO add your handling code here:
+        
+        jpPersonaDocumento DD = new jpPersonaDocumento();
+     DD.setSize(1000, 500);
+     DD.setLocation(0,0);
+     principal.removeAll();
+     principal.add(DD,BorderLayout.CENTER);
+     principal.revalidate();
+     principal.repaint();
+        
+        
+        
+    }//GEN-LAST:event_btnmenupersonadocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +229,7 @@ public class JframePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu DATOSDOCUMENTO;
     private javax.swing.JMenuItem btnMenuContador;
     private javax.swing.JMenu btncalculadora;
+    private javax.swing.JMenuItem btnmenupersonadocumento;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
